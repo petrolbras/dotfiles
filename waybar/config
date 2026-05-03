@@ -1,0 +1,17 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin": "0 0 0 0",
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "network", 
+        "cpu", 
+        "memory",
+        "gpu"
+    ],
+
+    "include": ["~/.config/waybar/modules.json"]
+}
