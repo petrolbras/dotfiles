@@ -1,0 +1,110 @@
+set $mod Mod4
+set $term alacritty
+set $menu wofi --show drun
+set $explorer dolphin
+set $XDG_CURRENT_DESKTOP Sway
+
+exec systemctl --user restart pipewire xdg-desktop-portal xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
+exec_always {
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_TYPE=wayland
+    export XDG_SESSION_DESKTOP=sway
+}
+
+exec /usr/bin/lxpolkit
+
+output * mode 1920x1080@74.973Hz bg /home/petrol/Wallpapers/wallpaperlegal.jpeg fill
+
+exec lxqt-policykit-agent
+
+gaps inner 10
+gaps outer 10
+
+smart_gaps on
+
+default_border pixel 0
+
+bindsym Print exec grim -g "$(slurp -d)" - | wl-copy --type image/png
+bindsym $mod+p exec grim - | wl-copy --type image/png
+
+bindsym $mod+q exec $term
+
+bindsym $mod+c kill
+
+bindsym $mod+d exec $menu
+
+bindsym $mod+e exec $explorer
+
+floating_modifier $mod
+
+bindsym $mod+Shift+r reload
+
+bindsym $mod+Shift+w exec swaymsg exit
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym $mod+t split toggle
+
+bindsym $mod+F11 fullscreen toggle
+
+bindsym $mod+f floating toggle
+
+bindsym $mod+a focus parent
+
+bindsym $mod+Shift+minus move scratchpad
+
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+Mod1+Left resize shrink width 10px
+bindsym $mod+Mod1+Down resize grow height 10px
+bindsym $mod+Mod1+Up resize shrink height 10px
+bindsym $mod+Mod1+Right resize grow width 10px
+
+bar {
+        swaybar_command waybar
+}
+
+input "type:keyboard"   {
+        xkb_layout br
+        xkb_variant abnt2
+        xkb_model abnt2
+}
+
+input "type:pointer" {
+        accel_profile "flat"
+}
+
+include /etc/sway/config.d/*
