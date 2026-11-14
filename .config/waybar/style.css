@@ -10,14 +10,41 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-@import "colors.css";
+@define-color base      #24273a;
+@define-color mantle    #1e2030;
+@define-color crust     #181926;
 
+@define-color text      #cad3f5;
+@define-color subtext0  #a5adcb;
+@define-color subtext1  #b8c0e0;
+
+@define-color surface0  #363a4f;
+@define-color surface1  #494d64;
+@define-color surface2  #5b6078;
+
+@define-color overlay0  #6e738d;
+@define-color overlay1  #8087a2;
+@define-color overlay2  #939ab7;
+
+@define-color blue      #8aadf4;
+@define-color lavender  #b7bdf8;
+@define-color sapphire  #7dc4e4;
+@define-color sky       #91d7e3;
+@define-color teal      #8bd5ca;
+@define-color green     #a6da95;
+@define-color yellow    #eed49f;
+@define-color peach     #f5a97f;
+@define-color maroon    #ee99a0;
+@define-color red       #ed8796;
+@define-color mauve     #c6a0f6;
+@define-color pink      #f5bde6;
+@define-color flamingo  #f0c6c6;
+@define-color rosewater #f4dbd6;
 
 /* -----------------------------------------------------------------------------
   * Base styles
   * -------------------------------------------------------------------------- */
 
-/* Reset all styles */
 
 * {
     color: @sky;
@@ -36,7 +63,7 @@ window#waybar {
     border-radius: 50%;
     /* background-color: @base; */
     margin: 0px 0px;
-    padding: 4 6 2 0;
+    padding: 4px 6px 2px 0px;
 }
 
 #workspaces button:hover {
@@ -302,7 +329,6 @@ window#waybar.empty #window {
 }
 
 #custom-launcher,
-#custom-power {}
 
 #custom-launcher {
     background-color: @mauve;
@@ -313,7 +339,7 @@ window#waybar.empty #window {
 }
 
 #custom-power {
-    color: @base;
+    color: black;
     background-color: @red;
     border-radius: 10px;
     margin-left: 5px;
@@ -321,96 +347,3 @@ window#waybar.empty #window {
     padding: 5px 10px;
 }
 
-/* #window { */
-/*     border-radius: 10px; */
-/*     color: @base; */
-/*     margin-left: 15px; */
-/*     background-color: @mauve; */
-/* } */
-
-#custom-keyboard-layout {
-    color: @peach;
-    /* border-bottom: 2px solid @peach; */
-    border-radius: 0 10px 10px 0;
-    margin-right: 10px;
-}
-
-
-
-/* window#waybar {
-     background: #2d2a2e;
- }
- 
- * {
-     color: #c8b9a9;
-     font-family: Ubuntu Mono, sans-serif;
-     font-size: 12px;
- }
- 
- #workspaces button.focused {
-     color: #f2e5bc;
- }
- 
- #workspaces button {
-     color: #c8b9a9;
- }
- 
- .separator {
-     background-color: #c8b9a9;
- }
- 
- #mode {
-     color: #ebcb8b;
- }
- 
- #clock {
-     color: #a3be8c;
- }
- 
- #battery {
-     color: #d8dee9;
- }
- 
- #battery.charging {
-     color: #b48ead;
- }
- 
- #battery.critical:not(.charging) {
-     color: #bf616a;
- }
- 
- #cpu {
-     color: #a3be8c;
- }
- 
- #memory {
-     color: #d3869b;
- }
- 
- #network {
-     color: #8fbcbb;
- }\
- 
- #network.disabled {
-     color: #bf616a;
- }
- 
- #network.disconnected {
-     color: #bf616a;
- }
- 
- #pulseaudio {
-     color: #b48ead;
- }
- 
- #pulseaudio.muted {
-     color: #bf616a;
- }
- 
- #temperature {
-     color: #8fbcbb;
- }
- 
- #temperature.critical {
-     color: #bf616a;
- } */

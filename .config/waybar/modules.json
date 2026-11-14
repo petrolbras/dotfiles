@@ -56,5 +56,10 @@
         "format-disconnected": "睊 Disconnected",
         "on-click": "nm-connection-editor",
         "tooltip": false
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "exec ~/.config/waybar/scripts/poweroff.sh",
+        "tooltip": false
     }
 }
